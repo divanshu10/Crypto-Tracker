@@ -1,0 +1,30 @@
+.btn-div {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+    background-color: var(--red);
+    border: 2px solid var(--red);
+    border-radius: 3rem;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  .btn-div:hover {
+    box-shadow: 4px 4px 10px rgba(245, 27, 38, 0.5);
+    transition: all 0.3s;
+  }
+  
+  .btn-outlined {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+    border: 2px solid var(--red);
+    border-radius: 3rem;
+    cursor: pointer;
+    font-weight: 600;
+    background-color: var(--black);
+    color: var(--white);
+  }
+  
+  .btn-outlined:hover {
+    background-color: var(--red);
+    transition: all 0.3s;
+  }
