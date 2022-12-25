@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Crypto-Tracker/static/css/main.7a1ba3ac.css",
-    "main.js": "/Crypto-Tracker/static/js/main.a9a0b459.js",
+    "main.css": "/Crypto-Tracker/static/css/main.08ce4686.css",
+    "main.js": "/Crypto-Tracker/static/js/main.5b3663c9.js",
     "static/media/iPhone.png": "/Crypto-Tracker/static/media/iPhone.545023e80ee9f4608e80.png",
     "index.html": "/Crypto-Tracker/index.html",
-    "main.7a1ba3ac.css.map": "/Crypto-Tracker/static/css/main.7a1ba3ac.css.map",
-    "main.a9a0b459.js.map": "/Crypto-Tracker/static/js/main.a9a0b459.js.map"
+    "main.08ce4686.css.map": "/Crypto-Tracker/static/css/main.08ce4686.css.map",
+    "main.5b3663c9.js.map": "/Crypto-Tracker/static/js/main.5b3663c9.js.map"
   },
   "entrypoints": [
-    "static/css/main.7a1ba3ac.css",
-    "static/js/main.a9a0b459.js"
+    "static/css/main.08ce4686.css",
+    "static/js/main.5b3663c9.js"
   ]
 }
