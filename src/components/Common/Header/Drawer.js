@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Drawer from "@mui/material/Drawer";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
-
+import { Link } from "react-router-dom";
  function MobileDrawer() {
   const [flag, setFlag] = useState(false);
 
@@ -10,18 +10,18 @@ import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
       <MenuRoundedIcon className="link" onClick={() => setFlag(true)} />
       <Drawer anchor={"right"} open={flag} onClose={() => setFlag(false)}>
         <div className="mobile-drawer">
-          <a href="/">
+           <Link to="/Home">
             <p className="link">Home</p>
-          </a>
-          <a href="/">
+           </Link>
+          <Link to="/">
             <p className="link">Compare</p>
-          </a>
-          <a href="/">
+          </Link>
+          <Link to="/">
             <p className="link">Watchlist</p>
-          </a>
-          <a href="/">
+          </Link>
+          <Link to="/dashboard">
             <p className="link">Dashboard</p>
-          </a>
+            </Link>
         </div>
       </Drawer>
     </div>

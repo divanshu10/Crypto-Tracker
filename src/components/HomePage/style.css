@@ -22,11 +22,18 @@
     -webkit-text-stroke: 3px var(--white);
     transition: all 0.3s;
   }
+  .heading-2:hover {
+    color: var(--black);
+    -webkit-text-stroke: 2px var(--red);
+    transition: all 0.3s;
+  }
   .para {
     color: var(--grey);
     font-size: 1.2rem;
   }
-  
+  .happy{
+    color:var(--red);
+  }
   .btn-flex {
     margin-top: 2rem;
     display: flex;
@@ -51,11 +58,12 @@
   } */
   
   .iphone {
-    position: absolute;
+    position:relative;
     max-width: 380px;
     object-fit: contain;
     z-index: 1;
     right: 0rem;
+    top: 1rem;
   }
   
   @media only screen and (max-width: 1250px) {

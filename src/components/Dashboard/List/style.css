@@ -21,7 +21,7 @@
   
   .list-row td {
     width: 18%;
-    color: black;
+    color: var(--grey);
   }
   
   .td-img {

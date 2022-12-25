@@ -3,6 +3,7 @@ import React from "react";
 import Button from "../Button/button";
 import MobileDrawer from "./Drawer";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -11,21 +12,23 @@ function Header() {
         CryptoTracker<span style={{ color: "var(--red)" }}>.</span>
       </h1>
       <div className="links-flex">
-        <a href="/">
+        <Link to="/Home">
           <p className="link">Home</p>
-        </a>
-        <a href="/">
+        </Link>
+        < Link to="/">
           <p className="link">Compare</p>
-        </a>
-        <a href="/">
+        </Link>
+        <Link to="/">
           <p className="link">Watchlist</p>
-        </a>
-        <Button
-          text="Dashboard"
-          onClick={() => {
-            console.log("btn-clicked!!!");
-          }}
-        />
+        </Link>
+        <Link to="/dashboard">
+          <Button
+            text="Dashboard"
+            onClick={() => {
+              console.log("btn-clicked!!!");
+
+            }}
+          /> </Link>
       </div>
       <MobileDrawer />
     </div>
