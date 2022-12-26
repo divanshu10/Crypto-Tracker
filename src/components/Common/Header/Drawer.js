@@ -10,10 +10,10 @@ import { Link } from "react-router-dom";
       <MenuRoundedIcon className="link" onClick={() => setFlag(true)} />
       <Drawer anchor={"right"} open={flag} onClose={() => setFlag(false)}>
         <div className="mobile-drawer">
-           <Link to="/Home">
+           <Link to="/">
             <p className="link">Home</p>
            </Link>
-          <Link to="/">
+          <Link to="/compare">
             <p className="link">Compare</p>
           </Link>
           <Link to="/">

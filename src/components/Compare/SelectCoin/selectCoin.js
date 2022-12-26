@@ -22,7 +22,8 @@ function SelectCoin({
     },
     "&:hover": {
       "&& fieldset": {
-        borderColor: "#3a80e9",
+      
+        borderColor:"#f94141",
       },
     },
   };
@@ -33,6 +34,7 @@ function SelectCoin({
       <Select
         className="select-coin"
         value={coin1}
+       color="error"
         onChange={(e) => handleCoinChange(e, true)}
         sx={selectStyle}
       >
@@ -48,6 +50,7 @@ function SelectCoin({
       <Select
         className="select-coin"
         value={coin2}
+        color="error"
         onChange={(e) => handleCoinChange(e, false)}
         sx={selectStyle}
       >

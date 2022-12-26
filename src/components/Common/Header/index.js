@@ -12,10 +12,10 @@ function Header() {
         CryptoTracker<span style={{ color: "var(--red)" }}>.</span>
       </h1>
       <div className="links-flex">
-        <Link to="/Home">
+        <Link to="/">
           <p className="link">Home</p>
         </Link>
-        < Link to="/">
+        < Link to="/compare">
           <p className="link">Compare</p>
         </Link>
         <Link to="/">
