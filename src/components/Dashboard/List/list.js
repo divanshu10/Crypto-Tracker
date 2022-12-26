@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import {Tooltip} from "@mui/material";
 
 function List({ coin, delay }) {
+  
   return (
     <a href={`/coin/${coin.id}`}>
       <motion.tr
