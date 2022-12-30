@@ -1,16 +1,24 @@
-import React from "react";
+import React, {useState} from "react";
 import "./style.css";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
 import { convertNumber } from "../../../functions/converNumber";
 import { motion } from "framer-motion";
 import {Tooltip} from "@mui/material";
+import { IconButton } from "@mui/material";
+import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
+import { addToWatchlist } from "../../../functions/addToWatchlist";
+import StarRoundedIcon from "@mui/icons-material/StarRounded";
+import { hasBeenAdded } from "../../../functions/hasBeenAdded";
+import { removeFromWatchlist } from "../../../functions/removeFromWatchlist";
 
-function List({ coin, delay }) {
-  
+
+function List({ coin, delay, isWatchlistPage }) {
+  const [added, setAdded] = useState(hasBeenAdded(coin.id));
   return (
     <a href={`/coin/${coin.id}`}>
       <motion.tr
+        style={{ display: isWatchlistPage && !added && "none" }}
         className="list-row"
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -80,6 +88,35 @@ function List({ coin, delay }) {
             </span>
           </td>
         </Tooltip>
+        <td style={{ width: "fit-content" }}>
+        
+          <IconButton
+            onClick={(e) => {
+              e.preventDefault();
+              if (added) {
+                removeFromWatchlist(coin.id);
+                setAdded(false);
+              } else {
+                addToWatchlist(coin.id);
+                setAdded(true);
+              }
+            }}
+          >
+            {added ? (
+              <StarRoundedIcon
+                className={`watchlist-icon ${
+                  coin.price_change_percentage_24h < 0 && "watchlist-icon-red"
+                } `}
+              />
+            ) : (
+              <StarBorderRoundedIcon
+                className={`watchlist-icon ${
+                  coin.price_change_percentage_24h < 0 && "watchlist-icon-red"
+                } `}
+              />
+            )}
+          </IconButton>
+        </td>
       </motion.tr>
     </a>
   );

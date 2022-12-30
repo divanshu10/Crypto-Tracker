@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import {API_URL} from "../constants";
 export const get100Coins = () => {
   const coins = axios
     .get(

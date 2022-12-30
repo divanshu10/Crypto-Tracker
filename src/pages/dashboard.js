@@ -7,6 +7,7 @@ import Loader from "../components/Common/Loader/loader";
 import TopButton from "../components/Common/BackToTop/TopButton";
 import PaginationComponent from "../components/Dashboard/pagination/pagination";
 import { get100Coins } from "../functions/get100Coins";
+import Footer from "../components/Common/Footer/footer";
 
 function DashboardPage() {
   const [loading, setLoading] = useState(false);
@@ -62,7 +63,9 @@ function DashboardPage() {
         <div>
           <Header />
           <SearchComponent search={search} onChange={onChange} />
-          <TabsComponent coins={search ? filteredCoins : paginatedCoins} />
+          <TabsComponent coins={search ? filteredCoins : paginatedCoins} 
+          setSearch={setSearch}
+          />
           {!search && (
             <PaginationComponent
               pageNumber={pageNumber}
@@ -71,6 +74,7 @@ function DashboardPage() {
           )}
         </div>
       )}
+       <Footer />
     </>
   );
 }

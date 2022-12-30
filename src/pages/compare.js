@@ -11,11 +11,12 @@ import { get100Coins } from "../functions/get100Coins";
 import { getCoinData } from "../functions/getCoinData";
 import { getCoinPrices } from "../functions/getCoinPrices";
 import { settingChartData } from "../functions/settingChartData";
+import Footer from "../components/Common/Footer/footer";
 
 function ComparePage() {
   const [allCoins, setAllCoins] = useState([]);
   const [coin1, setCoin1] = useState(allCoins[0]?.id ?? "bitcoin");
-  const [coin2, setCoin2] = useState(allCoins[1]?.id ?? "zilliqa");
+  const [coin2, setCoin2] = useState(allCoins[1]?.id ?? "ethereum");
   const [days, setDays] = useState(120);
   const [coin1Data, setCoin1Data] = useState();
   const [coin2Data, setCoin2Data] = useState();
@@ -27,13 +28,16 @@ function ComparePage() {
   });
 
   const handlePriceTypeChange = async (e) => {
+    setLoading(true);
     setPriceType(e.target.value);
     const prices1 = await getCoinPrices(coin1, days, e.target.value);
     const prices2 = await getCoinPrices(coin2, days, e.target.value);
     settingChartData(setChartData, prices1, coin1Data, coin2Data, prices2);
+    setLoading(false);
   };
 
   const handleCoinChange = async (e, isCoin1) => {
+    setLoading(true);
     if (isCoin1) {
       setCoin1(e.target.value);
       const data1 = await getCoinData(e.target.value);
@@ -49,13 +53,16 @@ function ComparePage() {
       const prices2 = await getCoinPrices(e.target.value, days, priceType);
       settingChartData(setChartData, prices1, coin1Data, data2, prices2);
     }
+    setLoading(false);
   };
 
   const handleDaysChange = async (e) => {
+    setLoading(true);
     setDays(e.target.value);
     const prices1 = await getCoinPrices(coin1, e.target.value, priceType);
     const prices2 = await getCoinPrices(coin2, e.target.value, priceType);
     settingChartData(setChartData, prices1, coin1Data, coin2Data, prices2);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -80,16 +87,17 @@ function ComparePage() {
 
   return (
     <div>
+      <Header />
       {loading || !coin1Data?.id || !coin2Data?.id ? (
         <Loader />
       ) : (
         <>
-          <Header />
           <SelectCoin
             allCoins={allCoins}
             coin1={coin1}
             coin2={coin2}
             days={days}
+            
             handleCoinChange={handleCoinChange}
             handleDaysChange={handleDaysChange}
           />
@@ -114,6 +122,7 @@ function ComparePage() {
           <CoinInfo name={coin2Data.name} desc={coin2Data.desc} />
         </>
       )}
+      <Footer />
     </div>
   );
 }

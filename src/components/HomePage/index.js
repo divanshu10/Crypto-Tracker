@@ -4,6 +4,7 @@ import "./style.css";
 import iPhone from "../../assets/iPhone.png"
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { RWebShare } from "react-web-share";
 
 function HomePageComponent() {
   return (<div className="landing-wrapper">
@@ -43,7 +44,16 @@ function HomePageComponent() {
 
           <Button text="Dashboard" />
         </Link>
-        <Button text="Share App" outlined={true} />
+        <RWebShare
+            data={{
+              text: "Crypto Dashboard made using React JS.",
+              url: "https://divanshu-cryptotracker.netlify.app/",
+              title: "CryptoTracker.",
+            }}
+            onClick={() => console.log("shared successfully!")}
+          >
+            <Button text="Share App" outlined={true} />
+          </RWebShare>
       </motion.div>
     </div>
     <div className="landing-right">

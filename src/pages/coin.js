@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from "react";
+import Footer from "../components/Common/Footer/footer";
 import { useParams } from "react-router-dom";
 import Header from "../components/Common/Header";
 import Loader from "../components/Common/Loader/loader";
@@ -35,7 +36,7 @@ function CoinPage() {
       coinObject(setCoin, data); //For Coin Obj being passed in the List
       const prices = await getCoinPrices(id, days, priceType);
       if (prices) {
-        settingChartData(setChartData, data, prices);
+        settingChartData(setChartData, prices, data);
         setLoading(false);
       }
     }
@@ -46,7 +47,7 @@ function CoinPage() {
     setDays(event.target.value);
     const prices = await getCoinPrices(id, event.target.value, priceType);
     if (prices) {
-      settingChartData(setChartData, coin, prices);
+      settingChartData(setChartData, prices, coin);
       setLoading(false);
     }
   };
@@ -56,18 +57,18 @@ function CoinPage() {
     setPriceType(event.target.value);
     const prices = await getCoinPrices(id, days, event.target.value);
     if (prices) {
-      settingChartData(setChartData, coin, prices);
-      setLoading(false);
+      settingChartData(setChartData, prices, coin);
     }
+    setLoading(false);
   };
 
   return (
     <div>
+      <Header />
       {loading || !coin?.id || !chartData ? (
         <Loader />
       ) : (
         <>
-          <Header />
           <div className="grey-wrapper">
             <List coin={coin} delay={0.1} />
           </div>
@@ -82,6 +83,7 @@ function CoinPage() {
           <CoinInfo name={coin.name} desc={coin.desc} />
         </>
       )}
+      <Footer />
     </div>
   );
 }

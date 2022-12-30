@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Pagination from "@mui/material/Pagination";
 import "./style.css";
+
 function PaginationComponent({ pageNumber, handleChange }) {
     return (
         <div className="pagination-div">
