@@ -18,10 +18,15 @@
     }
   
     .select-flex p {
-      display: none;
+      display: flex;
     }
   
     .select-coin {
       width: 7rem;
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    .select-flex p {
+      display: none;
     }
   }

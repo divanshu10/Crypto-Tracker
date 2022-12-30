@@ -29,6 +29,7 @@ function SelectCoin({
   };
 
   return (
+    
     <div className="select-flex">
       <p>Crypto 1</p>
       <Select
@@ -68,6 +69,7 @@ function SelectCoin({
         noText={true}
       />
     </div>
+    
   );
 }
 
