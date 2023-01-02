@@ -101,7 +101,7 @@ function ComparePage() {
             handleCoinChange={handleCoinChange}
             handleDaysChange={handleDaysChange}
           />
-          <div className="grey-wrapper">
+          <div className="grey-wrapper" >
             <List coin={coin1Data} delay={0.1} />
           </div>
           <div className="grey-wrapper">
